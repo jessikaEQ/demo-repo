@@ -10,7 +10,6 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
-
     steps:
     - name: Checkout repository
       uses: actions/checkout@v2
@@ -23,8 +22,16 @@ jobs:
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-       # pip install -r requirements.txt
-
+        
     - name: Run tests
       run: python index.py
+
+  Envionment_Variables:
+    runs-on: ubuntu-latest
+    env:
+      First_var: "1712"
+      Second_var: "1217"
+    steps:
+    - name: Print First env
+      run: echo "First_variable:-->> ${{ env.First_var }}" 
 
